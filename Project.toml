@@ -1,0 +1,4 @@
+name = "GraphAlgorithms"
+uuid = "955d2826-6c51-4fe5-aa13-26fe35b24d5e"
+authors = ["Cameron Bieganek"]
+version = "0.1.0"
