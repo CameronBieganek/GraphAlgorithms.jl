@@ -1,8 +1,8 @@
 # License information
 
 The GraphAlgorithms.jl package is licensed under the MIT License. However, the code in
-the files "dijkstra.jl" and "prim.jl" is ported from the Graphs.jl library. The license and
-copyright for Graphs.jl is included below.
+the files "src/dijkstra.jl" and "benchmarks/GraphsWrapper.jl" is ported from the Graphs.jl library.
+The license and copyright for Graphs.jl are included below.
 
 License for GraphAlgorithms.jl:
 
