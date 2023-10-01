@@ -8,6 +8,5 @@ export shortest_path
 
 include("dijkstra.jl")
 include("set_operations.jl")
-# include("prim.jl")
 
 end
