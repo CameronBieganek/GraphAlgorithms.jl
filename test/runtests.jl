@@ -39,3 +39,46 @@ using GraphAlgorithms
     ])
     @test shortest_path(g, 6, 4) == [6, 2, 7, 8, 4]
 end
+
+
+@testset "set operations" begin
+    g = Graph{Char}()
+    add_edges!(g, Edge.([
+        ('c', 'd'),
+        ('d', 'e'),
+        ('e', 'f'),
+        ('f', 'c')
+    ]))
+    add_vertices!(g, ['a', 'b'])
+
+    h = Graph{Char}()
+    add_edges!(h, Edge.([
+        ('c', 'd'),
+        ('d', 'f'),
+        ('f', 'c'),
+        ('d', 'g'),
+        ('g', 'h')
+    ]))
+    add_vertices!(h, ['i', 'j'])
+
+    g_union_h = union(g, h)
+
+    @test issetequal(vertices(g_union_h), 'a':'j')
+    @test issetequal(edges(g_union_h), Edge.([
+        ('c', 'd'),
+        ('d', 'e'),
+        ('d', 'f'),
+        ('e', 'f'),
+        ('f', 'c'),
+        ('d', 'g'),
+        ('g', 'h')
+    ]))
+
+    g_intersect_h = intersect(g, h)
+
+    @test issetequal(vertices(g_intersect_h), ['c', 'd', 'f'])
+    @test issetequal(edges(g_intersect_h), Edge.([
+        ('c', 'd'),
+        ('c', 'f')
+    ]))
+end
