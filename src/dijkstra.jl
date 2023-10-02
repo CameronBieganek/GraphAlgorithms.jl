@@ -15,7 +15,7 @@ function shortest_path(g::AbstractGraph, src, dst)
         u = dequeue!(H)
         d = get(dist, u, Inf)
         for v in neighbors(g, u)
-            alt = d + g.weights[u, v]
+            alt = d + weight(g, u, v)
             if v ∉ visited
                 push!(visited, v)
                 dist[v] = alt
